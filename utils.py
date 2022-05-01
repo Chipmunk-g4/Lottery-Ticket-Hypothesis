@@ -6,3 +6,8 @@ def get_layers(
         layers_type : tuple = (nn.Linear, nn.Conv2d)
     ):
     return [module for module in model.modules() if isinstance(module, layers_type)]
+
+def loop_dataloader(dataloader):
+    while True:
+        for x in iter(dataloader):
+            yield x
